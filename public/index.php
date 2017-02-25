@@ -3,6 +3,14 @@
 require '../vendor/autoload.php';
 $config = include '../config/config.php';
 
+$dbConnection = empty($dbConnection) ? new PDO(
+    "mysql:host={$config['database']['host']};dbname={$config['database']['database']}",
+    $config['database']['username'],
+    $config['database']['password']
+) : $dbConnection;
+
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 $requestUri = $_SERVER['REQUEST_URI'];
 $cleanRequestUri = trim($requestUri, '/');
 $requestParts = empty($cleanRequestUri) ? [] : explode('/', $cleanRequestUri);
@@ -24,4 +32,10 @@ switch (count($requestParts)) {
 $controllerToCall = 'MorsumMVC\Controllers\\'.ucfirst($controller).'Controller';
 $actionToCall = strtolower($_SERVER['REQUEST_METHOD']).ucfirst($action);
 
-(new $controllerToCall())->$actionToCall();
+$controller = new $controllerToCall();
+
+if (method_exists($controller, $actionToCall)) {
+    (new $controllerToCall())->$actionToCall();
+} else {
+    (new $controllerToCall())->getIndex();
+}
