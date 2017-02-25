@@ -14,4 +14,8 @@
 
 2. Do 'composer install'.
 
-3. Configure database at config/config.php. Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).
+3. Configure database at config/config.php.
+
+4. [Optional] Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).
+
+5. [Optional] Create/seed vinils table running `php <project_root>/app/seeds/Vinils.php` (warning this will destroy old data).
