@@ -10,7 +10,7 @@ class BaseController
         $this->config = $config;
     }
 
-    protected function render(array $opts)
+    protected function render(array $opts = [])
     {
         $folderName = preg_replace(['/^morsummvc.controllers./', '/controller$/'], '', strtolower(get_class($this)));
 
