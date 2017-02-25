@@ -1,6 +1,8 @@
 <?php
 
 require '../vendor/autoload.php';
+require '../app/Lib/OurLittleAppHelper.php';
+
 $config = include '../config/config.php';
 
 $dbConnection = empty($dbConnection) ? new PDO(
