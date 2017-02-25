@@ -22,6 +22,11 @@ $cleanRequestUri = trim($requestUri, '/');
 $requestParts = empty($cleanRequestUri) ? [] : explode('/', $cleanRequestUri);
 
 switch (count($requestParts)) {
+    case 3:
+        $controller = $requestParts[0];
+        $action = $requestParts[1];
+        $param = $requestParts[2];
+        break;
     case 2:
         $controller = $requestParts[0];
         $action = $requestParts[1];
@@ -41,7 +46,7 @@ $actionToCall = strtolower($_SERVER['REQUEST_METHOD']).ucfirst($action);
 $controller = new $controllerToCall();
 
 if (method_exists($controller, $actionToCall)) {
-    (new $controllerToCall())->$actionToCall();
+    (new $controllerToCall())->$actionToCall(empty($param) ? false : $param);
 } else {
     (new $controllerToCall())->getIndex();
 }

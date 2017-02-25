@@ -46,13 +46,13 @@ class OurLittleORM
         if ($id = (int) $id) {
             $calledClass = get_called_class();
             global $dbConnection;
-            $result = $dbConnection->query("SELECT * FROM {$calledClass::$tableName} WHERE id = $id LIMIT 1")->fetchAll()[0];
+            $result = $dbConnection->query("SELECT * FROM {$calledClass::$tableName} WHERE id = $id LIMIT 1")->fetchAll();
 
             if (!empty($result)) {
                 $returnObject = new $calledClass();
 
                 foreach (array_keys(get_object_vars($returnObject)) as $property) {
-                    $returnObject->$property = $result[$property];
+                    $returnObject->$property = $result[0][$property];
                 }
             }
         }

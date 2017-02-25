@@ -44,7 +44,7 @@ function convertToHtmlItems(array $inputArray = [])
 
         $itemData = implode(' - ', $itemDataArray);
 
-        $output .= "<a href='/{$model}/details/{$item->getId()}' class='list-group-item'>";
+        $output .= "<a href='/{$model}s/details/{$item->getId()}' class='list-group-item'>";
         $output .= $itemData;
         $output .= '</a>';
     }
