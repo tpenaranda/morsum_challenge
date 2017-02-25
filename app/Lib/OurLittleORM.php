@@ -15,7 +15,7 @@ class OurLittleORM
 
             return $this;
         } else {
-            throw new Exception('Method name not supported.');
+            throw new Exception("Wrong method '{$methodName}()' requested over ".get_class($this).' model.');
         }
     }
 
