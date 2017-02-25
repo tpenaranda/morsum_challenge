@@ -66,7 +66,7 @@
         </form>
       </div>
       <div class="list-group items"><h3>My Books</h3>{{ books }}</div>
-      <span class="listing-format"><a href="/books/details/#id#" class="list-group-item"><i>#title#</i> - #author#</a></span>
+      <span class="listing-format" style="display: none;"><a href="/books/details/#id#" class="list-group-item"><i>#title#</i> - #author#</a></span>
     </div><!-- /.container -->
 
 

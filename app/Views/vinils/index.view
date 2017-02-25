@@ -70,7 +70,7 @@
         </form>
       </div>
       <div class="list-group items"><h3>My Vinils</h3>{{ vinils }}</div>
-      <span class="listing-format"><a href="/vinils/details/#id#" class="list-group-item"><i>#title#</i> - #artist# - [#genre#]</a></span>
+      <span class="listing-format" style="display: none;"><a href="/vinils/details/#id#" class="list-group-item"><i>#title#</i> - #artist# - [#genre#]</a></span>
     </div><!-- /.container -->
 
 
