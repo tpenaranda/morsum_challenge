@@ -27,7 +27,7 @@ class OurLittleORM
         $output = [];
 
         try {
-            $rows = $dbConnection->query("SELECT id FROM {$calledClass::$tableName}")->fetchAll();
+            $rows = $dbConnection->query("SELECT id FROM {$calledClass::$tableName} ORDER BY id DESC")->fetchAll();
 
             foreach ($rows as $row) {
                 $output[] = (new $calledClass())->getById($row['id']);
@@ -62,6 +62,10 @@ class OurLittleORM
 
     public static function validate(array $input = [])
     {
+        $filterFunction = function($item) { return !empty(trim($item)); };
+
+        $input = array_filter($input, $filterFunction);
+
         $calledClass = get_called_class();
 
         return empty(array_diff($calledClass::$fillable, array_keys($input)));
@@ -83,7 +87,7 @@ class OurLittleORM
             $valuesArray = [];
 
             foreach ($this::$fillable as $column) {
-                $valuesArray[] = "'{$this->$column}'";
+                $valuesArray[] = "'".trim($this->$column)."'";
             }
 
             $columns = implode(',', $columnsArray);
