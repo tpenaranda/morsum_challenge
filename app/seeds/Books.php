@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-$config = include(dirname(dirname(__DIR__)).'/config/config.php');
+$config = include dirname(dirname(__DIR__)).'/config/config.php';
 
 try {
     $conn = new PDO(
@@ -30,7 +30,6 @@ try {
     $conn->exec('INSERT INTO books (`title`, `author`) VALUES ("Test Title", "Test author")');
 
     echo "Table 'books' seeded successfully\n";
-    }
-catch (PDOException $e) {
+} catch (PDOException $e) {
     echo "Error creating/seeding 'books' table: {$e->getMessage()}\n";
 }

@@ -1,15 +1,16 @@
 <?php
 
-$config = include('../config/config.php');
+$config = include '../config/config.php';
 
 $directory = new RecursiveDirectoryIterator(__DIR__.'/../app', FilesystemIterator::SKIP_DOTS);
 $projectFiles = new RecursiveIteratorIterator($directory);
 
-function __autoload($className) {
+function __autoload($className)
+{
     global $projectFiles;
     foreach ($projectFiles as $item) {
         if ("{$className}.php" == $item->getFilename()) {
-            include_once($item->getPathname());
+            include_once $item->getPathname();
             break;
         }
     }
@@ -36,4 +37,4 @@ switch (count($requestParts)) {
 $controllerToCall = ucfirst($controller).'Controller';
 $actionToCall = strtolower($_SERVER['REQUEST_METHOD']).ucfirst($action);
 
-(new $controllerToCall)->$actionToCall();
+(new $controllerToCall())->$actionToCall();

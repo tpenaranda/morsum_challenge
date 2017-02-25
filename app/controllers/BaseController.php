@@ -8,7 +8,7 @@ class BaseController
         $this->config = $config;
     }
 
-    protected function render(Array $opts)
+    protected function render(array $opts)
     {
         $folderName = preg_replace('/controller$/', '', strtolower(get_class($this)));
         $viewName = strtolower(preg_replace('/^get/', '', debug_backtrace()[1]['function']));
