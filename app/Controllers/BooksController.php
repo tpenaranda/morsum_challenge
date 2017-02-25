@@ -9,13 +9,8 @@ class BooksController extends BaseController
     public function getIndex()
     {
         $title = "Books - {$this->config['app_name']}";
-        $books = '';
 
-        foreach (Book::fetchAll() as $book) {
-            $books .= "{$book->getId()}. {$book->getTitle()} - Author: {$book->getAuthor()}<br>";
-        }
-
-        $this->render(['title' => $title, 'books' => $books]);
+        $this->render(['title' => $title, 'books' => convertToHtmlItems(Book::fetchAll())]);
     }
 
     public function getDetails($param = false)

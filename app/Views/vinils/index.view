@@ -51,7 +51,7 @@
 
     <div class="container">
 
-      <div class="list-group books"><h3>My Books</h3>{{ books }}</div>
+      <div class="list-group vinils"><h3>My Vinils</h3>{{ vinils }}</div>
 
     </div><!-- /.container -->
 
