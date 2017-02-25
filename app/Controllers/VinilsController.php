@@ -16,32 +16,32 @@ class VinilsController extends BaseController
     public function getDetails($param = false)
     {
         $title = "Vinil details - {$this->config['app_name']}";
-        $VinilDetails = '';
-        $Vinil = Vinil::getById($param);
+        $vinilDetails = '';
+        $vinil = Vinil::getById($param);
 
-        if (!empty($Vinil)) {
-            foreach ($Vinil as $key => $value) {
+        if (!empty($vinil)) {
+            foreach ($vinil as $key => $value) {
                 $key =  str_replace('_', ' ', ucfirst($key));
                 $value = ucwords($value);
 
-                $VinilDetails .= "<br> <b>{$key}:</b> {$value}";
+                $vinilDetails .= "<br> <b>{$key}:</b> {$value}";
             }
         } else {
-            $VinilDetails = 'Vinil ID not found';
+            $vinilDetails = 'Vinil ID not found';
         }
 
-        $this->render(['title' => $title, 'vinil' => $VinilDetails]);
+        $this->render(['title' => $title, 'vinil' => $vinilDetails]);
     }
 
-    public function postCreate()
+    public function postIndex()
     {
         $input = $_POST;
 
         if (!Vinil::validate($input)) {
             $this->renderJson(['success' => false], '400');
         } else {
-            $Vinil = Vinil::create($input);
-            $this->renderJson(['success' => true, 'data' => $Vinil]);
+            $vinil = Vinil::create($input);
+            $this->renderJson(['success' => true, 'data' => $vinil]);
         }
     }
 

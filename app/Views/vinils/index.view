@@ -50,7 +50,26 @@
     </nav>
 
     <div class="container">
+      <div class="new-vinil">
+        <h4>Add a new Vinil</h4>
+        <form role="form" class="input-form" data-toggle="validator">
+          <div class="form-group text-left">
+            <label for="inputTitle">Title</label>
+            <input name="title" class="form-control" placeholder="Title of the vinil" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="inputGenre">Genre</label>
+            <input name="genre" class="form-control" placeholder="Rock, Pop, Classic" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="inputArtist">Artist</label>
+            <input name="artist" class="form-control" placeholder="Some cool artist..." required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+          <p class="messages" id="messages"></p>
+      </form>
 
+      </div>
       <div class="list-group vinils"><h3>My Vinils</h3>{{ vinils }}</div>
 
     </div><!-- /.container -->
@@ -64,5 +83,6 @@
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
