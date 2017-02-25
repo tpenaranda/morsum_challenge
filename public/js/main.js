@@ -10,7 +10,7 @@ $('.input-form').submit(function(e) {
             success: function(data) {
                 i = data.data;
                 $('#messages').html('New item added!')
-                .addClass('green').removeClass('red').show().delay(1000).fadeOut();
+                .addClass('text-success').removeClass('text-danger').show().delay(1000).fadeOut();
 
                 var itemHtml = '<a href="/vinils/details/' + i.id + '" class="list-group-item">' +
                     '<i>' + i.title + '</i> - ' + i.artist + ' - [' + i.genre + ']' +
@@ -20,7 +20,7 @@ $('.input-form').submit(function(e) {
             },
             error: function(e) {
                 $('#messages').html('There was an error addding the item!')
-                .addClass('red').removeClass('green').show().delay(3000).fadeOut();
+                .addClass('text-danger').removeClass('text-success').show().delay(3000).fadeOut();
             }
         });
     });
