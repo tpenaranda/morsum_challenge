@@ -27,7 +27,10 @@ try {
 
     echo "Table 'books' created successfully\n";
 
-    $conn->exec('INSERT INTO books (`title`, `author`) VALUES ("Test Title", "Test author")');
+    $conn->exec('INSERT INTO books (`title`, `author`) VALUES ("The Giving Tree", "Shel Silverstein")');
+    $conn->exec('INSERT INTO books (`title`, `author`) VALUES ("On Heroes and Tombs", "Ernesto Sábato")');
+    $conn->exec('INSERT INTO books (`title`, `author`) VALUES ("Of Mice and Men", "John Steinbeck")');
+
 
     echo "Table 'books' seeded successfully\n";
 } catch (PDOException $e) {
