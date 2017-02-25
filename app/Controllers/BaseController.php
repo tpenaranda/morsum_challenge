@@ -28,4 +28,15 @@ class BaseController
             echo "Can't read {$viewFile} file.";
         }
     }
+
+    protected function renderJson(array $output = [], $httpCode = 0)
+    {
+        header('Content-Type: application/json');
+
+        if ((int) $httpCode) {
+            http_response_code($httpCode);
+        }
+
+        echo json_encode($output);
+    }
 }
