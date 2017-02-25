@@ -10,15 +10,10 @@ function __autoload($className) {
     foreach ($projectFiles as $item) {
         if ("{$className}.php" == $item->getFilename()) {
             include_once($item->getPathname());
-            echo "Included file for instantiating {$className} class<br>";
             break;
         }
     }
 }
-
-
-echo 'Hello World! - '.$config['app_name']."<br>";
-
 
 $requestUri = $_SERVER['REQUEST_URI'];
 $cleanRequestUri = trim($requestUri, '/');
@@ -41,9 +36,4 @@ switch (count($requestParts)) {
 $controllerToCall = ucfirst($controller).'Controller';
 $actionToCall = strtolower($_SERVER['REQUEST_METHOD']).ucfirst($action);
 
-echo "Controller we should call: {$controllerToCall}, Action: {$actionToCall}<br>";
-
-new $controllerToCall;
-
-
-
+(new $controllerToCall)->$actionToCall();
