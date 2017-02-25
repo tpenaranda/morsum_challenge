@@ -50,7 +50,7 @@
     </nav>
 
     <div class="container">
-      <div class="new-vinil">
+      <div class="new-item">
         <h4>Add a new Vinil</h4>
         <form role="form" class="input-form" data-toggle="validator">
           <div class="form-group text-left">
@@ -65,11 +65,12 @@
             <label for="inputArtist">Artist</label>
             <input name="artist" class="form-control" placeholder="Some cool artist..." required>
           </div>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-primary">Add Vinil</button>
           <p class="messages" id="messages"></p>
         </form>
       </div>
-      <div class="list-group vinils"><h3>My Vinils</h3>{{ vinils }}</div>
+      <div class="list-group items"><h3>My Vinils</h3>{{ vinils }}</div>
+      <span class="listing-format"><a href="/vinils/details/#id#" class="list-group-item"><i>#title#</i> - #artist# - [#genre#]</a></span>
     </div><!-- /.container -->
 
 

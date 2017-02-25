@@ -33,7 +33,7 @@ class BooksController extends BaseController
         $this->render(['title' => $title, 'book' => $bookDetails]);
     }
 
-    public function postCreate()
+    public function postIndex()
     {
         $input = $_POST;
 

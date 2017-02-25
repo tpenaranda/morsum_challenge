@@ -12,11 +12,15 @@ $('.input-form').submit(function(e) {
                 $('#messages').html('New item added!')
                 .addClass('text-success').removeClass('text-danger').show().delay(1000).fadeOut();
 
-                var itemHtml = '<a href="/vinils/details/' + i.id + '" class="list-group-item">' +
-                    '<i>' + i.title + '</i> - ' + i.artist + ' - [' + i.genre + ']' +
-                    '</a>';
+                var itemHtml = $('.listing-format').html();
+                var matches = itemHtml.match(/#[^#]*#/g);
+                matches = $.map(matches, function(i) { return i.substr(1, i.length - 2) });
 
-                $('.list-group.vinils a').first().before(itemHtml);
+                $.each(matches, function(key, item) {
+                    itemHtml = itemHtml.replace('#' + item + '#', i[item]);
+                });
+
+                $('.list-group.items a').first().before(itemHtml);
             },
             error: function(e) {
                 $('#messages').html('There was an error addding the item!')

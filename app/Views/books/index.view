@@ -50,9 +50,23 @@
     </nav>
 
     <div class="container">
-
-      <div class="list-group books"><h3>My Books</h3>{{ books }}</div>
-
+      <div class="new-item">
+        <h4>Add a new Book</h4>
+        <form role="form" class="input-form" data-toggle="validator">
+          <div class="form-group text-left">
+            <label for="inputTitle">Title</label>
+            <input name="title" class="form-control" placeholder="Title of the book" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="inputAuthor">Author</label>
+            <input name="author" class="form-control" placeholder="Author of the book" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Book</button>
+          <p class="messages" id="messages"></p>
+        </form>
+      </div>
+      <div class="list-group items"><h3>My Books</h3>{{ books }}</div>
+      <span class="listing-format"><a href="/books/details/#id#" class="list-group-item"><i>#title#</i> - #author#</a></span>
     </div><!-- /.container -->
 
 
@@ -64,5 +78,6 @@
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
