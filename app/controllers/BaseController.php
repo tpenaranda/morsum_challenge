@@ -15,8 +15,8 @@ class BaseController
 
         $view = file_get_contents(dirname(dirname(__FILE__))."/views/{$folderName}/{$viewName}.view");
 
-        $function = function ($item) { return "/\{\{ $item \}\}/"; };
-        $filledView = preg_replace(array_map($function, array_keys($opts)), array_values($opts), $view);
+        $mapFunction = function ($item) { return "/\{\{ $item \}\}/"; };
+        $filledView = preg_replace(array_map($mapFunction, array_keys($opts)), array_values($opts), $view);
 
         echo $filledView;
     }
