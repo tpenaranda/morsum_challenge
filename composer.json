@@ -9,6 +9,11 @@
         "nesbot/carbon": "^1.22"
     },
     "autoload": {
-        "psr-4": {"MorsumMVC\\": "app/"}
+        "psr-4": {
+            "MorsumMVC\\": "app/"
+        },
+        "classmap": [
+            "app/Lib"
+        ]
     }
 }
