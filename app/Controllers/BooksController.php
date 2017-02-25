@@ -12,9 +12,22 @@ class BooksController extends BaseController
         $books = '';
 
         foreach (Book::fetchAll() as $book) {
-            $books .= "Title: {$book->getTitle()} - Author: {$book->getAuthor()}<br>";
+            $books .= "{$book->getId()}. {$book->getTitle()} - Author: {$book->getAuthor()}<br>";
         }
 
         $this->render(['title' => $title, 'books' => $books]);
     }
+
+    public function postCreate()
+    {
+        $input = $_POST;
+
+        if (!Book::validate($input)) {
+            $this->renderJson(['success' => false], '400');
+        } else {
+            $book = Book::create($input);
+            $this->renderJson(['success' => true, 'data' => $book]);
+        }
+    }
+
 }
