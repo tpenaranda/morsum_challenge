@@ -21,7 +21,7 @@ class OurLittleORM
 
     public static function fetchAll()
     {
-        global $config, $dbConnection;
+        global $dbConnection;
 
         $calledClass = get_called_class();
 
@@ -55,4 +55,64 @@ class OurLittleORM
 
         return $returnObject;
     }
+
+    public static function validate(array $input = [])
+    {
+        $calledClass = get_called_class();
+
+        return empty(array_diff($calledClass::$fillable, array_keys($input)));
+    }
+
+    public function save()
+    {
+        global $dbConnection;
+
+        $columnsArray = $this::$fillable;
+        $valuesArray = [];
+
+        foreach ($this::$fillable as $column) {
+            $valuesArray[] = "'{$this->$column}'";
+        }
+
+        if (empty($this->id)) {
+            $columnsArray = $this::$fillable;
+            $valuesArray = [];
+
+            foreach ($this::$fillable as $column) {
+                $valuesArray[] = "'{$this->$column}'";
+            }
+
+            $columns = implode(',', $columnsArray);
+            $values = implode(',', $valuesArray);
+
+            $sql = "INSERT INTO {$this::$tableName} ($columns) VALUES ($values)";
+
+            $dbConnection->exec($sql);
+
+            $this->id = $dbConnection->lastInsertId();
+        } else {
+            $valuesToSetArray = [];
+
+            foreach ($columnsArray as $column) {
+                $valuesToSetArray[] = "{$column} = '{$this->$column}'";
+            }
+
+            $valuesToSet = implode(',', $valuesToSetArray);
+
+            $sql = "UPDATE {$this::$tableName} SET {$valuesToSet} WHERE id = {$this->id}";
+
+            $dbConnection->exec($sql);
+        }
+
+        return $this->getById($this->id);
+    }
+
+    public static function create($input)
+    {
+        $calledClass = get_called_class();
+
+        $model = new $calledClass($input);
+        return $model->save();
+    }
+
 }
