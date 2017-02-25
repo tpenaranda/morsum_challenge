@@ -5,13 +5,17 @@ require '../app/Lib/OurLittleAppHelper.php';
 
 $config = include '../config/config.php';
 
-$dbConnection = empty($dbConnection) ? new PDO(
-    "mysql:host={$config['database']['host']};dbname={$config['database']['database']}",
-    $config['database']['username'],
-    $config['database']['password']
-) : $dbConnection;
-
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+    $dbConnection = empty($dbConnection) ? new PDO(
+        "mysql:host={$config['database']['host']};dbname={$config['database']['database']}",
+        $config['database']['username'],
+        $config['database']['password']
+    ) : $dbConnection;
+    $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (Exception $e) {
+    echo 'There was an error connecting with the DB, check your configuration.';
+    exit;
+}
 
 $requestUri = $_SERVER['REQUEST_URI'];
 $cleanRequestUri = trim($requestUri, '/');
