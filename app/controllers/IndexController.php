@@ -1,7 +1,12 @@
 <?php
 
-class IndexController {
-    public function __construct() {
-        echo 'Hi, this is IndexController';
+class IndexController extends BaseController
+{
+    public function getIndex()
+    {
+        $title = $this->config['app_name'];
+        $body = "Hello World!";
+
+        $this->render(['title' => $title, 'body' => $body]);
     }
 }
