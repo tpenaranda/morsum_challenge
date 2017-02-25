@@ -1,5 +1,7 @@
 <?php
 
+namespace MorsumMVC\Controllers;
+
 class BaseController
 {
     public function __construct()
@@ -10,7 +12,8 @@ class BaseController
 
     protected function render(array $opts)
     {
-        $folderName = preg_replace('/controller$/', '', strtolower(get_class($this)));
+        $folderName = preg_replace(['/^morsummvc.controllers./', '/controller$/'], '', strtolower(get_class($this)));
+
         $viewName = strtolower(preg_replace('/^get/', '', debug_backtrace()[1]['function']));
 
         $view = file_get_contents(dirname(dirname(__FILE__))."/views/{$folderName}/{$viewName}.view");

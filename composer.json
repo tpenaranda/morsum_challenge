@@ -1,0 +1,14 @@
+{
+    "name": "Morsum/MVC",
+    "description": "A dev challenge from Morsum.",
+    "keywords": [
+        "challenge",
+        "morsum"
+    ],
+    "require": {
+        "nesbot/carbon": "^1.22"
+    },
+    "autoload": {
+        "psr-4": {"MorsumMVC\\": "app/"}
+    }
+}

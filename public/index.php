@@ -1,20 +1,7 @@
 <?php
 
+require '../vendor/autoload.php';
 $config = include '../config/config.php';
-
-$directory = new RecursiveDirectoryIterator(__DIR__.'/../app', FilesystemIterator::SKIP_DOTS);
-$projectFiles = new RecursiveIteratorIterator($directory);
-
-function __autoload($className)
-{
-    global $projectFiles;
-    foreach ($projectFiles as $item) {
-        if ("{$className}.php" == $item->getFilename()) {
-            include_once $item->getPathname();
-            break;
-        }
-    }
-}
 
 $requestUri = $_SERVER['REQUEST_URI'];
 $cleanRequestUri = trim($requestUri, '/');
@@ -34,7 +21,7 @@ switch (count($requestParts)) {
         break;
 }
 
-$controllerToCall = ucfirst($controller).'Controller';
+$controllerToCall = 'MorsumMVC\Controllers\\'.ucfirst($controller).'Controller';
 $actionToCall = strtolower($_SERVER['REQUEST_METHOD']).ucfirst($action);
 
 (new $controllerToCall())->$actionToCall();

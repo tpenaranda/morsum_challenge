@@ -1,8 +1,10 @@
-Requirements:
+#Requirements:
+
 - PHP >= 5.6
 - Apache >= 2.4
+- Composer >= 1.1
 
-Installation steps:
+#Installation steps:
 
 1. Check 'AllowOverride' on Apache configuration in order to support parsing of .htaccess file.
 
@@ -10,4 +12,6 @@ Installation steps:
         AllowOverride All
     </Directory>
 
-2. Configure database at config/config.php. Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).
+2. Do 'composer install'.
+
+3. Configure database at config/config.php. Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).

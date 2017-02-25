@@ -1,5 +1,7 @@
 <?php
 
+namespace MorsumMVC\Controllers;
+
 class IndexController extends BaseController
 {
     public function getIndex()
