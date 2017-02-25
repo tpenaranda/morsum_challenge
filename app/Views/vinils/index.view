@@ -67,11 +67,9 @@
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
           <p class="messages" id="messages"></p>
-      </form>
-
+        </form>
       </div>
       <div class="list-group vinils"><h3>My Vinils</h3>{{ vinils }}</div>
-
     </div><!-- /.container -->
 
 
