@@ -15,7 +15,7 @@ class BaseController
         $folderName = preg_replace(['/^morsummvc.controllers./', '/controller$/'], '', strtolower(get_class($this)));
 
         $viewName = strtolower(preg_replace('/^get/', '', debug_backtrace()[1]['function']));
-        $viewFile = dirname(dirname(__FILE__))."/views/{$folderName}/{$viewName}.view";
+        $viewFile = dirname(dirname(__FILE__))."/Views/{$folderName}/{$viewName}.view";
 
         $view = @file_get_contents($viewFile);
 
