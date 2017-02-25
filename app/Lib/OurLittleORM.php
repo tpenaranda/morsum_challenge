@@ -24,12 +24,16 @@ class OurLittleORM
         global $dbConnection;
 
         $calledClass = get_called_class();
-
-        $rows = $dbConnection->query("SELECT id FROM {$calledClass::$tableName}")->fetchAll();
-
         $output = [];
-        foreach ($rows as $row) {
-            $output[] = (new $calledClass())->getById($row['id']);
+
+        try {
+            $rows = $dbConnection->query("SELECT id FROM {$calledClass::$tableName}")->fetchAll();
+
+            foreach ($rows as $row) {
+                $output[] = (new $calledClass())->getById($row['id']);
+            }
+        } catch (Exception $e) {
+            error_log("Something went wrong when reading '{$calledClass::$tableName}' table.");
         }
 
         return $output;
