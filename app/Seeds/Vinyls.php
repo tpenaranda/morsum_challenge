@@ -12,9 +12,9 @@ try {
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $conn->exec('DROP TABLE IF EXISTS vinils');
+    $conn->exec('DROP TABLE IF EXISTS vinyls');
 
-    $sql = "CREATE TABLE vinils (
+    $sql = "CREATE TABLE vinyls (
         `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
         `artist` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
@@ -25,13 +25,13 @@ try {
 
     $conn->exec($sql);
 
-    echo "Table 'vinils' created successfully\n";
+    echo "Table 'vinyls' created successfully\n";
 
-    $conn->exec('INSERT INTO vinils (`title`, `artist`, `genre`) VALUES ("Back to black", "Amy Winehouse", "Soul")');
-    $conn->exec('INSERT INTO vinils (`title`, `artist`, `genre`) VALUES ("Nevermind", "Nirvana", "Grunge")');
-    $conn->exec('INSERT INTO vinils (`title`, `artist`, `genre`) VALUES ("Legend", "Bob Marley & The Wailers", "Roots Reggae")');
+    $conn->exec('INSERT INTO vinyls (`title`, `artist`, `genre`) VALUES ("Back to black", "Amy Winehouse", "Soul")');
+    $conn->exec('INSERT INTO vinyls (`title`, `artist`, `genre`) VALUES ("Nevermind", "Nirvana", "Grunge")');
+    $conn->exec('INSERT INTO vinyls (`title`, `artist`, `genre`) VALUES ("Legend", "Bob Marley & The Wailers", "Roots Reggae")');
 
-    echo "Table 'vinils' seeded successfully\n";
+    echo "Table 'vinyls' seeded successfully\n";
 } catch (PDOException $e) {
-    echo "Error creating/seeding 'vinils' table: {$e->getMessage()}\n";
+    echo "Error creating/seeding 'vinyls' table: {$e->getMessage()}\n";
 }

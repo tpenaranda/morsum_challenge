@@ -26,7 +26,7 @@ class MorsumMVCTestCase extends TestCase
         )";
         $dbConnection->exec($sql);
 
-        $sql = "CREATE TABLE vinils (
+        $sql = "CREATE TABLE vinyls (
             `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
             `artist` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
@@ -54,6 +54,6 @@ class MorsumMVCTestCase extends TestCase
         global $dbConnection;
 
         $dbConnection->exec('DROP TABLE books');
-        $dbConnection->exec('DROP TABLE vinils');
+        $dbConnection->exec('DROP TABLE vinyls');
     }
 }

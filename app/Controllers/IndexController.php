@@ -3,18 +3,18 @@
 namespace MorsumMVC\Controllers;
 
 use MorsumMVC\Models\Book;
-use MorsumMVC\Models\Vinil;
+use MorsumMVC\Models\Vinyl;
 
 class IndexController extends BaseController
 {
     public function getIndex()
     {
         $title = $this->config['app_name'];
-        $booksHtml = $vinilsHtml = '';
+        $booksHtml = $vinylsHtml = '';
 
         $books = Book::fetchAll();
-        $vinils = Vinil::fetchAll();
+        $vinyls = Vinyl::fetchAll();
 
-        $this->render(['title' => $title, 'books' => convertToHtmlItems($books), 'vinils' => convertToHtmlItems($vinils)]);
+        $this->render(['title' => $title, 'books' => convertToHtmlItems($books), 'vinyls' => convertToHtmlItems($vinyls)]);
     }
 }

@@ -43,19 +43,34 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Index</a></li>
             <li><a href="/books">Books</a></li>
-            <li><a href="/vinils">Vinils</a></li>
+            <li><a href="/vinyls">Vinyls</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-      <div class="vinil-details">
-        <h2>Vinil details:</h3>
-        <div>{{ vinil }}</div>
-        <br><button type="button" class="btn btn-danger delete-button">Delete</button>
-        <p class="messages" id="messages"></p>
+      <div class="new-item">
+        <h4>Add a new Vinyl</h4>
+        <form role="form" class="input-form" data-toggle="validator">
+          <div class="form-group text-left">
+            <label for="inputTitle">Title</label>
+            <input name="title" class="form-control" placeholder="Title of the vinyl" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="inputGenre">Genre</label>
+            <input name="genre" class="form-control" placeholder="Rock, Pop, Classic" required>
+          </div>
+          <div class="form-group text-left">
+            <label for="inputArtist">Artist</label>
+            <input name="artist" class="form-control" placeholder="Some cool artist..." required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Vinyl</button>
+          <p class="messages" id="messages"></p>
+        </form>
       </div>
+      <div class="list-group items"><h3>My Vinyls</h3>{{ vinyls }}</div>
+      <span class="listing-format" style="display: none;"><a href="/vinyls/#id#" class="list-group-item"><i>#title#</i> - #artist# - [#genre#]</a></span>
     </div><!-- /.container -->
 
 

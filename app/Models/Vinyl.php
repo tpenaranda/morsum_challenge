@@ -2,10 +2,10 @@
 
 namespace MorsumMVC\Models;
 
-class Vinil extends \OurLittleORM
+class Vinyl extends \OurLittleORM
 {
     public static $fillable = ['title', 'artist', 'genre'];
-    public static $tableName = 'vinils';
+    public static $tableName = 'vinyls';
 
     public $artist = null;
     public $created_at = null;

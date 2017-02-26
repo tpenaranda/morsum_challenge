@@ -43,7 +43,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Index</a></li>
             <li><a href="/books">Books</a></li>
-            <li><a href="/vinils">Vinils</a></li>
+            <li><a href="/vinyls">Vinyls</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -53,11 +53,11 @@
 
       <div class="starter-template">
         <h1>Hi there!, I'm a virtual shelf.</h1>
-        <p class="lead">You will find here my Vinils and Books, also I have some endpoints to manage them. Have fun!.</p>
+        <p class="lead">You will find here my Vinyls and Books, also I have some endpoints to manage them. Have fun!.</p>
       </div>
 
       <div class="list-group books"><h3>Books</h3>{{ books }}</div>
-      <div class="list-group vinils"><h3>Vinils</h3>{{ vinils }}</div>
+      <div class="list-group vinyls"><h3>Vinyls</h3>{{ vinyls }}</div>
 
     </div><!-- /.container -->
 
