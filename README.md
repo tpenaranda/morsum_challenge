@@ -9,14 +9,14 @@ Our framework handles the routing, calling the appropiate Controller/Action acco
 New classes (Models/Controllers) **must** follow this convention.
 
 | Class | Path | Naming | Notes |
-| - | - | - | - |
+| --- | --- | --- | --- |
 | Model | app/Models/<model>.php | ucfirst | Table name must be "<model>+s". |
 | View | app/Views/<controller_name>/<action>.view | lcase | We can respond with a view file (using "$this->render()" in the Controller) only when responding to GET method ("getAction" action method as example) |
 | Controller | app/Controllers/<controller_name>.php | ucfirst  | Must end with "Controller.php" ("AcmeController.php" for instance) |
 ##### Routing
 Routing is very basic.
 | URL | Request method | Controller | Action | Notes |
-| - | - | - | - | - |
+| --- | --- | --- | --- | --- |
 | / | <method> | IndexController.php | <method>Index() |
 | /<controller> | <method> | <controller>Controller.php | <method>Index() |
 | /<controller>/<action> | <method> | <controller>Controller.php | <method><action>() |
@@ -25,7 +25,7 @@ Routing is very basic.
 
 Let's check some examples.
 | URL | Method | Controller | Action | Notes |
-| - | - | - | - | - |
+| --- | --- | --- | --- | --- |
 | / | GET | IndexController.php | getIndex() |
 | /vinyls | GET | VinylsController.php | getIndex() |
 | /vinyls/hello | GET | VinylsController.php | getHello() |
@@ -52,22 +52,22 @@ Model::validate(); # Checks if Model data is filled properly according to $filla
 - Composer >= 1.1
 
 ### Installation steps:
-0. Check requirements above.
-1. Configure Apache in order to look for `<project_root>/public/index.php`. Check 'AllowOverride' on Apache configuration in order to support parsing of .htaccess file.
+1. Check requirements above.
+2. Configure Apache in order to look for `<project_root>/public/index.php`. Check 'AllowOverride' on Apache configuration in order to support parsing of .htaccess file.
 ```sh
     <Directory /project_root/public/>
         AllowOverride All
     </Directory>
 ```
-2. Install PHP dependencies: `composer install`
+3. Install PHP dependencies: `composer install`
 
-3. Copy `config/config.php.example` to `config/config.php`. Configure `local_url`and databases. Create the empty DB for production. Create the empty DB for testing.
+4. Copy `config/config.php.example` to `config/config.php`. Configure `local_url`and databases. Create the empty DB for production. Create the empty DB for testing.
 
-4. [Optional] Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).
+5. [Optional] Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).
 
-5. [Optional] Create/seed vinils table running `php <project_root>/app/seeds/Vinyls.php` (warning this will destroy old data).
+6. [Optional] Create/seed vinils table running `php <project_root>/app/seeds/Vinyls.php` (warning this will destroy old data).
 
-6. Run tests. From `<project_folder>` fire up `./vendor/bin/phpunit`.
+7. Run tests. From `<project_folder>` fire up `./vendor/bin/phpunit`.
 Expected output:
 ```sh
 PHPUnit 5.7.14 by Sebastian Bergmann and contributors.
@@ -78,4 +78,4 @@ Time: 211 ms, Memory: 4.75MB
 
 OK (7 tests, 19 assertions
 ```
-7. Navigate to `local_url` value from config file and enjoy the app!
+8. Navigate to `local_url` value from config file and enjoy the app!
