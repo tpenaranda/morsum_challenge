@@ -57,10 +57,10 @@ if (empty($action)) {
 $controllerToCall = 'MorsumMVC\Controllers\\'.ucfirst($controller).'Controller';
 $actionToCall = strtolower($_SERVER['REQUEST_METHOD']).ucfirst($action);
 
-$controller = new $controllerToCall();
+$controller = class_exists($controllerToCall) ? new $controllerToCall() : new MorsumMVC\Controllers\IndexController();
 
 if (method_exists($controller, $actionToCall)) {
-    (new $controllerToCall())->$actionToCall(empty($param) ? false : $param);
+    $controller->$actionToCall(empty($param) ? false : $param);
 } else {
-    (new $controllerToCall())->getIndex();
+    $controller->getIndex();
 }
