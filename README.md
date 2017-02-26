@@ -25,7 +25,7 @@ Routing is very basic.
 | /<controller>/<int> | GET | <controller>Controller.php | getDetails(<int>) |
 | /<controller>/<int>/<action> | <method> | <controller>Controller.php | <method><action>(<int>) |
 
-Let's check some examples.
+If a Controller or an Action is not defined, framework will fallback to index. Let's check some examples.
 
 | URL | Method | Controller | Action | Notes |
 | --- | --- | --- | --- | --- |
@@ -38,6 +38,15 @@ Let's check some examples.
 | /vinyls | POST | VinylsController.php | postIndex() ||
 | /vinyls/hello | POST | VinylsController.php | postHello() ||
 | /vinyls/<int> | POST | VinylsController.php | postIndex(<int>) ||
+
+Remember on the Action method, you can call `render()` or `->renderJson()`, this will set the desired `Content-Type` on the header and also you can pass an http code to `->renderJson([], <code>)`.
+
+##### Models
+Models are quite simple, just set these propierties as public, framework will use that information to pull/validate data. That's it.
+```php
+public static $fillable = ['column1', 'column2', 'column3'];
+public static $tableName = 'examples';
+```
 
 ##### OurLittleORM Usage
 Available methods:
@@ -55,22 +64,22 @@ Model::validate(); # Checks if Model data is filled properly according to $filla
 - Composer >= 1.1
 
 ### Installation steps:
-1. Check requirements above.
-2. Configure Apache in order to look for `<project_root>/public/index.php`. Check 'AllowOverride' on Apache configuration in order to support parsing of .htaccess file.
+- Check requirements above.
+- Configure Apache in order to look for `<project_root>/public/index.php`. Check 'AllowOverride' on Apache configuration in order to support parsing of .htaccess file.
 ```sh
     <Directory /project_root/public/>
         AllowOverride All
     </Directory>
 ```
-3. Install PHP dependencies: `composer install`
+- Install PHP dependencies: `composer install`
 
-4. Copy `config/config.php.example` to `config/config.php`. Configure `local_url`and databases. Create the empty DB for production. Create the empty DB for testing.
+- Copy `config/config.php.example` to `config/config.php`. Configure `local_url`and databases. Create the empty DB for production. Create the empty DB for testing.
 
-5. [Optional] Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).
+- [Optional] Create/seed books table running `php <project_root>/app/seeds/Books.php` (warning this will destroy old data).
 
-6. [Optional] Create/seed vinils table running `php <project_root>/app/seeds/Vinyls.php` (warning this will destroy old data).
+- [Optional] Create/seed vinils table running `php <project_root>/app/seeds/Vinyls.php` (warning this will destroy old data).
 
-7. Run tests. From `<project_folder>` fire up `./vendor/bin/phpunit`.
+- Run tests. From `<project_folder>` fire up `./vendor/bin/phpunit`.
 Expected output:
 ```sh
 PHPUnit 5.7.14 by Sebastian Bergmann and contributors.
@@ -79,6 +88,15 @@ PHPUnit 5.7.14 by Sebastian Bergmann and contributors.
 
 Time: 211 ms, Memory: 4.75MB
 
-OK (7 tests, 19 assertions
+OK (7 tests, 19 assertions)
 ```
-8. Navigate to `local_url` value from config file and enjoy the app!
+- Navigate to `local_url` value from config file and enjoy the app!
+
+### Notes
+
+Wow, time is almost over. I really enjoyed this challenge there is a lot to improve of course (and probably build from scratch) but well, I think that I come up with something which is working and has a value. Actually when I work in this kinds of projects, I try to be as organic as possible, we all know time will be over and project is not going to be completed as we want.
+I don't remember the last time I have written PHP without a Framework but I really missed one when dealing with the tests, testing DB, routing... well, anytime.
+I created some tests (kind of end to end testing using Guzzle) to cover create/delete and pull data from the DB. Adding unit testing for the framework classes look like will be a pain due to the rushed design, but at least those tests are covering what I think is the most important part of the appplication.
+So, maybe is not.. haha, but I have tried to do our small framework as flexible and open as possible. I think adding a new item type (DVDs, for instance) will be fast and straightforward.
+So, thanks! Please let me know any questions!.
+Tate.
