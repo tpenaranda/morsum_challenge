@@ -10,20 +10,20 @@ New classes (Models/Controllers) **must** follow this convention.
 
 | Class | Path | Naming | Notes |
 | --- | --- | --- | --- |
-| Model | app/Models/<model>.php | ucfirst | Table name must be "<model>+s". |
-| View | app/Views/<controller_name>/<action>.view | lcase | We can respond with a view file (using "$this->render()" in the Controller) only when responding to GET method ("getAction" action method as example) |
-| Controller | app/Controllers/<controller_name>.php | ucfirst  | Must end with "Controller.php" ("AcmeController.php" for instance) |
+| Model | app/Models/&lt;model&gt;.php | ucfirst | Table name must be "&lt;model&gt;+s". |
+| View | app/Views/&lt;controller_name&gt;/&lt;action&gt;.view | lcase | We can respond with a view file (using "$this-&gt;render()" in the Controller) only when responding to GET method ("getAction" action method as example) |
+| Controller | app/Controllers/&lt;controller_name&gt;.php | ucfirst  | Must end with "Controller.php" ("AcmeController.php" for instance) |
 
 ##### Routing
 Routing is very basic.
 
 | URL | Request method | Controller | Action | Notes |
 | --- | --- | --- | --- | --- |
-| / | <method> | IndexController.php | <method>Index() |
-| /<controller> | <method> | <controller>Controller.php | <method>Index() |
-| /<controller>/<action> | <method> | <controller>Controller.php | <method><action>() |
-| /<controller>/<int> | GET | <controller>Controller.php | getDetails(<int>) |
-| /<controller>/<int>/<action> | <method> | <controller>Controller.php | <method><action>(<int>) |
+| / | &lt;method&gt; | IndexController.php | &lt;method&gt;Index() |
+| /&lt;controller&gt; | &lt;method&gt; | &lt;controller&gt;Controller.php | &lt;method&gt;Index() |
+| /&lt;controller&gt;/&lt;action&gt; | &lt;method&gt; | &lt;controller&gt;Controller.php | &lt;method&gt;&lt;action&gt;() |
+| /&lt;controller&gt;/&lt;int&gt; | GET | &lt;controller&gt;Controller.php | getDetails(&lt;int&gt;) |
+| /&lt;controller&gt;/&lt;int&gt;/&lt;action&gt; | &lt;method&gt; | &lt;controller&gt;Controller.php | &lt;method&gt;&lt;action&gt;(&lt;int&gt;) |
 
 If a Controller or an Action is not defined, framework will fallback to index. Let's check some examples.
 
@@ -32,12 +32,12 @@ If a Controller or an Action is not defined, framework will fallback to index. L
 | / | GET | IndexController.php | getIndex() ||
 | /vinyls | GET | VinylsController.php | getIndex() ||
 | /vinyls/hello | GET | VinylsController.php | getHello() ||
-| /vinyls/<int> | GET | VinylsController.php | getDetails(<int>) | Routing calls "getDetails(<int>)" if no action was specified afger an int value. |
+| /vinyls/&lt;int&gt; | GET | VinylsController.php | getDetails(&lt;int&gt;) | Routing calls "getDetails(&lt;int&gt;)" if no action was specified afger an int value. |
 | /vinyls/hello | DELETE | VinylsController.php | deleteHello() ||
-| /vinyls/<int> | DELETE | VinylsController.php | deleteIndex(<int>) ||
+| /vinyls/&lt;int&gt; | DELETE | VinylsController.php | deleteIndex(&lt;int&gt;) ||
 | /vinyls | POST | VinylsController.php | postIndex() ||
 | /vinyls/hello | POST | VinylsController.php | postHello() ||
-| /vinyls/<int> | POST | VinylsController.php | postIndex(<int>) ||
+| /vinyls/&lt;int&gt; | POST | VinylsController.php | postIndex(&lt;int&gt;) ||
 
 Remember on the Action method, you can call `render()` or `->renderJson()`, this will set the desired `Content-Type` on the header and also you can pass an http code to `->renderJson([], <code>)`.
 
