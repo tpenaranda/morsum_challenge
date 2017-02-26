@@ -94,9 +94,10 @@ OK (7 tests, 19 assertions)
 
 ### Notes
 
-Wow, time is almost over. I really enjoyed this challenge there is a lot to improve of course (and probably build from scratch) but well, I think that I come up with something which is working and has a value. Actually when I work in this kinds of projects, I try to be as organic as possible, we all know time will be over and project is not going to be completed as we want.
-I don't remember the last time I have written PHP without a Framework but I really missed one when dealing with the tests, testing DB, routing... well, anytime.
-I created some tests (kind of end to end testing using Guzzle) to cover create/delete and pull data from the DB. Adding unit testing for the framework classes look like will be a pain due to the rushed design, but at least those tests are covering what I think is the most important part of the appplication.
-So, maybe is not.. haha, but I have tried to do our small framework as flexible and open as possible. I think adding a new item type (DVDs, for instance) will be fast and straightforward.
-So, thanks! Please let me know any questions!.
+Wow, time is almost over.  
+I really enjoyed this challenge, there is a lot to improve of course (and probably build from scratch) but well, I think that I come up with something which is working and has a value. Actually when I work in this kinds of projects, I try to be as organic as possible, we all know time will be over and project is not going to be completed as we want.  
+I don't remember the last time I have written PHP without a Framework but I really missed one when dealing with the tests, testing DB, routing... well, all the time.  
+I created some tests (kind of end to end testing using Guzzle) to cover create/delete and pull data from the DB. Adding unit testing for the framework classes look like will be a pain due to the rushed design, but at least those tests are covering what I think is the most important part of the application.  
+So, maybe is not.. haha, but I have tried to do our small framework as flexible and open as possible. I think adding a new item type (DVDs, for instance) will be fast and straightforward.  
+So, thanks! Please let me know any questions!.  
 Tate.
