@@ -6,11 +6,15 @@ require '../app/Lib/OurLittleAppHelper.php';
 $config = include '../config/config.php';
 
 try {
-    $dbConnection = empty($dbConnection) ? new PDO(
+    $dbConnection = ('GuzzleHttp' == substr($_SERVER['HTTP_USER_AGENT'], 0, 10)) ? new PDO(
+        "mysql:host={$config['test_database']['host']};dbname={$config['test_database']['database']}",
+        $config['test_database']['username'],
+        $config['test_database']['password']
+    ) : new PDO(
         "mysql:host={$config['database']['host']};dbname={$config['database']['database']}",
         $config['database']['username'],
         $config['database']['password']
-    ) : $dbConnection;
+    );
     $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     echo 'There was an error connecting with the DB, check your configuration.';

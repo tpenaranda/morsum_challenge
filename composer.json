@@ -13,7 +13,13 @@
             "MorsumMVC\\": "app/"
         },
         "classmap": [
-            "app/Lib"
+            "app/Lib",
+            "tests/MorsumMVCTestCase.php"
         ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0",
+        "phpunit/dbunit": "^2.0",
+        "guzzlehttp/guzzle": "~6.0"
     }
 }
