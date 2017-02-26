@@ -26,15 +26,15 @@ Routing is very basic.
 Let's check some examples.
 | URL | Method | Controller | Action | Notes |
 | --- | --- | --- | --- | --- |
-| / | GET | IndexController.php | getIndex() ||
-| /vinyls | GET | VinylsController.php | getIndex() ||
-| /vinyls/hello | GET | VinylsController.php | getHello() ||
+| / | GET | IndexController.php | getIndex() | - |
+| /vinyls | GET | VinylsController.php | getIndex() | - |
+| /vinyls/hello | GET | VinylsController.php | getHello() | - |
 | /vinyls/<int> | GET | VinylsController.php | getDetails(<int>) | Routing calls "getDetails(<int>)" if no action was specified afger an int value. |
-| /vinyls/hello | DELETE | VinylsController.php | deleteHello() ||
-| /vinyls/<int> | DELETE | VinylsController.php | deleteIndex(<int>) ||
-| /vinyls | POST | VinylsController.php | postIndex() ||
-| /vinyls/hello | POST | VinylsController.php | postHello() ||
-| /vinyls/<int> | POST | VinylsController.php | postIndex(<int>) ||
+| /vinyls/hello | DELETE | VinylsController.php | deleteHello() | - |
+| /vinyls/<int> | DELETE | VinylsController.php | deleteIndex(<int>) | - |
+| /vinyls | POST | VinylsController.php | postIndex() | - |
+| /vinyls/hello | POST | VinylsController.php | postHello() | - |
+| /vinyls/<int> | POST | VinylsController.php | postIndex(<int>) | - |
 
 ##### OurLittleORM Usage
 Available methods:
