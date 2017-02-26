@@ -99,5 +99,5 @@ I really enjoyed this challenge, there is a lot to improve of course (and probab
 I don't remember the last time I have written PHP without a Framework but I really missed one when dealing with the tests, testing DB, routing... well, all the time.  
 I created some tests (kind of end to end testing using Guzzle) to cover create/delete and pull data from the DB. Adding unit testing for the framework classes look like will be a pain due to the rushed design, but at least those tests are covering what I think is the most important part of the application.  
 So, maybe is not.. haha, but I have tried to do our small framework as flexible and open as possible. I think adding a new item type (DVDs, for instance) will be fast and straightforward.  
-So, thanks! Please let me know any questions!.  
+So, thanks, please let me know any questions!.  
 Tate.
