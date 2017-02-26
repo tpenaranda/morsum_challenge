@@ -45,4 +45,9 @@ class BooksController extends BaseController
         }
     }
 
+    public function deleteIndex()
+    {
+
+        $this->renderJson(['success' => false, 'message' => 'Delete method not implemented yet.']);
+    }
 }
