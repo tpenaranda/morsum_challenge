@@ -13,8 +13,10 @@ New classes (Models/Controllers) **must** follow this convention.
 | Model | app/Models/<model>.php | ucfirst | Table name must be "<model>+s". |
 | View | app/Views/<controller_name>/<action>.view | lcase | We can respond with a view file (using "$this->render()" in the Controller) only when responding to GET method ("getAction" action method as example) |
 | Controller | app/Controllers/<controller_name>.php | ucfirst  | Must end with "Controller.php" ("AcmeController.php" for instance) |
+
 ##### Routing
 Routing is very basic.
+
 | URL | Request method | Controller | Action | Notes |
 | --- | --- | --- | --- | --- |
 | / | <method> | IndexController.php | <method>Index() |
@@ -24,17 +26,18 @@ Routing is very basic.
 | /<controller>/<int>/<action> | <method> | <controller>Controller.php | <method><action>(<int>) |
 
 Let's check some examples.
+
 | URL | Method | Controller | Action | Notes |
 | --- | --- | --- | --- | --- |
-| / | GET | IndexController.php | getIndex() | - |
-| /vinyls | GET | VinylsController.php | getIndex() | - |
-| /vinyls/hello | GET | VinylsController.php | getHello() | - |
+| / | GET | IndexController.php | getIndex() ||
+| /vinyls | GET | VinylsController.php | getIndex() ||
+| /vinyls/hello | GET | VinylsController.php | getHello() ||
 | /vinyls/<int> | GET | VinylsController.php | getDetails(<int>) | Routing calls "getDetails(<int>)" if no action was specified afger an int value. |
-| /vinyls/hello | DELETE | VinylsController.php | deleteHello() | - |
-| /vinyls/<int> | DELETE | VinylsController.php | deleteIndex(<int>) | - |
-| /vinyls | POST | VinylsController.php | postIndex() | - |
-| /vinyls/hello | POST | VinylsController.php | postHello() | - |
-| /vinyls/<int> | POST | VinylsController.php | postIndex(<int>) | - |
+| /vinyls/hello | DELETE | VinylsController.php | deleteHello() ||
+| /vinyls/<int> | DELETE | VinylsController.php | deleteIndex(<int>) ||
+| /vinyls | POST | VinylsController.php | postIndex() ||
+| /vinyls/hello | POST | VinylsController.php | postHello() ||
+| /vinyls/<int> | POST | VinylsController.php | postIndex(<int>) ||
 
 ##### OurLittleORM Usage
 Available methods:
