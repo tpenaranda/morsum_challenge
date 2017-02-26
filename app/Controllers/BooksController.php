@@ -45,9 +45,14 @@ class BooksController extends BaseController
         }
     }
 
-    public function deleteIndex()
+    public function deleteIndex($param = false)
     {
+        $book = Book::getById($param);
 
-        $this->renderJson(['success' => false, 'message' => 'Delete method not implemented yet.']);
+        if (empty($book) || !$book->delete()) {
+            $this->renderJson(['success' => false], 400);
+        } else {
+            $this->renderJson(['success' => true]);
+        }
     }
 }

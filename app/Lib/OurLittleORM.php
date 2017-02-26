@@ -70,6 +70,19 @@ class OurLittleORM
         return empty(array_diff($calledClass::$fillable, array_keys($input)));
     }
 
+    public function delete()
+    {
+        global $dbConnection;
+        $output = false;
+
+        if (!empty($this->id)) {
+            $sql = "DELETE FROM {$this::$tableName} WHERE id = {$this->id}";
+            $output = $dbConnection->exec($sql);
+        }
+
+        return $output;
+    }
+
     public function save()
     {
         global $dbConnection;

@@ -38,10 +38,21 @@ class VinilsController extends BaseController
         $input = $_POST;
 
         if (!Vinil::validate($input)) {
-            $this->renderJson(['success' => false], '400');
+            $this->renderJson(['success' => false], 400);
         } else {
             $vinil = Vinil::create($input);
             $this->renderJson(['success' => true, 'data' => $vinil]);
+        }
+    }
+
+    public function deleteIndex($param = false)
+    {
+        $vinil = Vinil::getById($param);
+
+        if (empty($vinil) || !$vinil->delete()) {
+            $this->renderJson(['success' => false], 400);
+        } else {
+            $this->renderJson(['success' => true]);
         }
     }
 }

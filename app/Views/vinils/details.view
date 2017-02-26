@@ -50,12 +50,12 @@
     </nav>
 
     <div class="container">
-
       <div class="vinil-details">
         <h2>Vinil details:</h3>
         <div>{{ vinil }}</div>
+        <br><button type="button" class="btn btn-danger delete-button">Delete</button>
+        <p class="messages" id="messages"></p>
       </div>
-
     </div><!-- /.container -->
 
 
@@ -67,5 +67,6 @@
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>

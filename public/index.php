@@ -31,18 +31,23 @@ switch (count($requestParts)) {
         $controller = $requestParts[0];
         if (is_numeric($requestParts[1])) {
             $param = $requestParts[1];
-            $action = 'details';
+            if ('GET' == $_SERVER['REQUEST_METHOD']) {
+                $action = 'details';
+            }
         } else {
             $action = $requestParts[1];
         }
         break;
     case 1:
         $controller = $requestParts[0];
-        $action = 'index';
         break;
     default:
-        $controller = $action = 'index';
+        $controller = 'index';
         break;
+}
+
+if (empty($action)) {
+    $action = 'index';
 }
 
 $controllerToCall = 'MorsumMVC\Controllers\\'.ucfirst($controller).'Controller';
