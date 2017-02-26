@@ -2,11 +2,19 @@
 
 return [
     'app_name' => 'Morsum Code Challenge',
+    'local_url' => 'http://localhost',
     'database' => [
         'host' => 'localhost',
         'port' => '3306',
-        'username'  => 'root',
-        'password'  => 'secret',
-        'database'  => 'morsum',
+        'username' => 'root',
+        'password' => '***',
+        'database' => 'morsum',
+    ],
+    'test_database' => [
+        'host' => 'localhost',
+        'port' => '3306',
+        'username' => 'root',
+        'password' => '***',
+        'database' => 'morsum_test',
     ],
 ];
