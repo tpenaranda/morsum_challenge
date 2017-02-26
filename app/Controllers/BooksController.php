@@ -21,7 +21,7 @@ class BooksController extends BaseController
 
         if (!empty($book)) {
             foreach ($book as $key => $value) {
-                $key =  str_replace('_', ' ', ucfirst($key));
+                $key = str_replace('_', ' ', ucfirst($key));
                 $value = ucwords($value);
 
                 $bookDetails .= "<br> <b>{$key}:</b> {$value}";

@@ -31,7 +31,6 @@ try {
     $conn->exec('INSERT INTO books (`title`, `author`) VALUES ("On Heroes and Tombs", "Ernesto Sábato")');
     $conn->exec('INSERT INTO books (`title`, `author`) VALUES ("Of Mice and Men", "John Steinbeck")');
 
-
     echo "Table 'books' seeded successfully\n";
 } catch (PDOException $e) {
     echo "Error creating/seeding 'books' table: {$e->getMessage()}\n";

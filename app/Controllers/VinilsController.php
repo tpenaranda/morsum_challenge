@@ -21,7 +21,7 @@ class VinilsController extends BaseController
 
         if (!empty($vinil)) {
             foreach ($vinil as $key => $value) {
-                $key =  str_replace('_', ' ', ucfirst($key));
+                $key = str_replace('_', ' ', ucfirst($key));
                 $value = ucwords($value);
 
                 $vinilDetails .= "<br> <b>{$key}:</b> {$value}";
@@ -44,5 +44,4 @@ class VinilsController extends BaseController
             $this->renderJson(['success' => true, 'data' => $vinil]);
         }
     }
-
 }

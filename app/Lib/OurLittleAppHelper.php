@@ -4,8 +4,8 @@ function customErrorHandler()
 {
     $lastError = error_get_last();
     if ($lastError && E_ERROR == $lastError['type']) {
-        header("HTTP/1.1 500 Internal Server Error");
-        echo "<br><i>Ups, sorry, something went wrong...</i><br>";
+        header('HTTP/1.1 500 Internal Server Error');
+        echo '<br><i>Ups, sorry, something went wrong...</i><br>';
     }
 }
 
@@ -37,10 +37,13 @@ function convertToHtmlItems(array $inputArray = [])
             $itemDataArray[] = $item->$columnMethod();
         }
 
-        if (!empty($itemDataArray[0])) $itemDataArray[0] = "<i>{$itemDataArray[0]}</i>";
+        if (!empty($itemDataArray[0])) {
+            $itemDataArray[0] = "<i>{$itemDataArray[0]}</i>";
+        }
 
-        if (count($itemDataArray) > 2) $itemDataArray[2] = "[{$itemDataArray[2]}]";
-
+        if (count($itemDataArray) > 2) {
+            $itemDataArray[2] = "[{$itemDataArray[2]}]";
+        }
 
         $itemData = implode(' - ', $itemDataArray);
 

@@ -1,6 +1,5 @@
 <?php
 
-use Carbon\Carbon;
 
 class OurLittleORM
 {
@@ -62,7 +61,7 @@ class OurLittleORM
 
     public static function validate(array $input = [])
     {
-        $filterFunction = function($item) { return !empty(trim($item)); };
+        $filterFunction = function ($item) { return !empty(trim($item)); };
 
         $input = array_filter($input, $filterFunction);
 
@@ -120,7 +119,7 @@ class OurLittleORM
         $calledClass = get_called_class();
 
         $model = new $calledClass($input);
+
         return $model->save();
     }
-
 }
