@@ -24,12 +24,17 @@ $requestParts = empty($cleanRequestUri) ? [] : explode('/', $cleanRequestUri);
 switch (count($requestParts)) {
     case 3:
         $controller = $requestParts[0];
-        $action = $requestParts[1];
-        $param = $requestParts[2];
+        $action = $requestParts[2];
+        $param = $requestParts[1];
         break;
     case 2:
         $controller = $requestParts[0];
-        $action = $requestParts[1];
+        if (is_numeric($requestParts[1])) {
+            $param = $requestParts[1];
+            $action = 'details';
+        } else {
+            $action = $requestParts[1];
+        }
         break;
     case 1:
         $controller = $requestParts[0];
