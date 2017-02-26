@@ -1,6 +1,5 @@
 <?php
 
-
 class OurLittleORM
 {
     public function __call($methodName, $params)

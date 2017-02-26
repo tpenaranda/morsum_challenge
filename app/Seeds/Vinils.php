@@ -14,7 +14,6 @@ try {
 
     $conn->exec('DROP TABLE IF EXISTS vinils');
 
-    // sql to create table
     $sql = "CREATE TABLE vinils (
         `id` int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,

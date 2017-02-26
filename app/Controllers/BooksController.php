@@ -22,7 +22,6 @@ class BooksController extends BaseController
 
         if (!empty($book)) {
             foreach ($book as $key => $value) {
-
                 if (substr($key, -3) == '_at') {
                     $key = ucfirst(substr($key, 0, strlen($key) - 3));
                     $value = Carbon::parse($value)->toDayDateTimeString();
