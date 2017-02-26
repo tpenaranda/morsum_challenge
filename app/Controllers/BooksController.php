@@ -2,6 +2,7 @@
 
 namespace MorsumMVC\Controllers;
 
+use Carbon\Carbon;
 use MorsumMVC\Models\Book;
 
 class BooksController extends BaseController
@@ -21,8 +22,14 @@ class BooksController extends BaseController
 
         if (!empty($book)) {
             foreach ($book as $key => $value) {
-                $key = str_replace('_', ' ', ucfirst($key));
-                $value = ucwords($value);
+
+                if (substr($key, -3) == '_at') {
+                    $key = ucfirst(substr($key, 0, strlen($key) - 3));
+                    $value = Carbon::parse($value)->toDayDateTimeString();
+                } else {
+                    $key = ucfirst($key);
+                    $value = ucwords($value);
+                }
 
                 $bookDetails .= "<br> <b>{$key}:</b> {$value}";
             }
